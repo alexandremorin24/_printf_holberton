@@ -5,6 +5,7 @@
 !*.c
 !*.h
 !README.md
+!.gitignore
 
 # Ignore compiled or executable files
 a.out
