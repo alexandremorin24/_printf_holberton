@@ -13,14 +13,13 @@ int print_char(va_list args)
 	return (_putchar(c));
 }
 
-#include "main.h"
-
 /**
  * print_string - Function to print a string
  * @args: va_list containing the argument of type char *
  *
  * Return: The number of characters printed
  */
+
 int print_string(va_list args)
 {
 	char *str = va_arg(args, char *);
