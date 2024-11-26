@@ -13,4 +13,10 @@ int print_int(va_list args);
 int _putchar(char c);
 int _strlen(char *s);
 
+typedef struct format_specifier
+{
+    char spec;
+	void (*func)(va_list args);
+} format_specifier_t;
+
 #endif
