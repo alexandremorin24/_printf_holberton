@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _printf - Custom implementation of the printf function
+ * @format: Format string containing text and specifiers
+ *
+ * Return: Total number of characters printed
+ */
 void _printf(const char * const format, ...)
 {
     int count = 0;
@@ -12,37 +18,44 @@ void _printf(const char * const format, ...)
 		{'\0', NULL}
 	};
     va_list args;
-    unsigned int i = 0, j = 0;
-    va_start(args, format);
-
-    if (!format || !format[i])
+    unsigned int i, j;
+    
+    if (!format || !*format)
     return (-1);
 
-    for (; format[i] != '\0'; i++)
+    va_start(args, format);
 
-    if (format[i] == '%')
+    for (i = 0; format[i] != '\0'; i++)
     {
-        i++;
-        if (!format[i])
+        if (format[i] == '%')
         {
-            va_end(args);
-            return (-1);
-        }
-        for (j = 0; specifiers[j].spec != '\0'; j++)
-        {
-            if (specifiers[j].spec  == format[i])
+            i++;
+            if (!format[i])
             {
-                count += specifiers[j].func(args);
-                break;
+                va_end(args);
+                return (-1);
             }
-        }
-          if (specifiers[j].spec == '\0')
+
+            for (j = 0; specifiers[j].spec != '\0'; j++)
+            {
+                if (specifiers[j].spec  == format[i])
+                {
+                    count += specifiers[j].func(args);
+                    break;
+                }
+            }
+
+            if (specifiers[j].spec == '\0')
             {
                 count += _putchar('%');
                 count += _putchar(format[i]);
             }
+        }
+        else
+        {
+            count += _putchar(format[i]);
+        }
     }
     va_end(args);
     return(count);
 }
-
