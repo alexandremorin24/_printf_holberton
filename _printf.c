@@ -6,9 +6,9 @@
  *
  * Return: Total number of characters printed
  */
-void _printf(const char * const format, ...)
+int _printf(const char * const format, ...)
 {
-    int count = 0;
+    int count = 0, result = 0;
 	format_specifier_t specifiers[] = {
 		{'c', print_char},
         {'s', print_string},
@@ -27,6 +27,8 @@ void _printf(const char * const format, ...)
 
     for (i = 0; format[i] != '\0'; i++)
     {
+
+
         if (format[i] == '%')
         {
             i++;
@@ -51,10 +53,31 @@ void _printf(const char * const format, ...)
                 count += _putchar(format[i]);
             }
         }
+		else if (format[i] == '\\')
+		{
+			i++;
+
+			if (!format[i])
+			{
+				va_end(args);
+				return (-1);
+			}
+
+			result = handle_escape_sequence(format[i]);
+
+			if (result == -1)
+			{
+				va_end(args);
+				return (-1);
+			}
+
+			count += result;
+		}
         else
         {
             count += _putchar(format[i]);
         }
+
     }
     va_end(args);
     return(count);

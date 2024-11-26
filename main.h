@@ -27,7 +27,7 @@ int handle_escape_sequence(char c);
 typedef struct format_specifier
 {
 	char spec;
-	void (*func)(va_list args);
+	int (*func)(va_list args);
 } format_specifier_t;
 
 #endif
