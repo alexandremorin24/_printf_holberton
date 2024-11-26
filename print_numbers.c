@@ -21,24 +21,37 @@ int print_percent(va_list args)
 int print_decimal(va_list args)
 {
 	int n = va_arg(args, int);
-	int count = 0;
 	unsigned int num;
+	int count = 0;
+	int digits[10];
+	int i = 0;
 
 	if (n < 0)
 	{
 		count += _putchar('-');
 		num = -n;
 	}
-
 	else
 	{
 		num = n;
 	}
 
-	if (num / 10 != 0)
-		count += print_decimal_recursive(num / 10);
+	if (num == 0)
+	{
+		count += _putchar('0');
+		return (count);
+	}
 
-	count += _putchar((num % 10) + '0');
+	while (num > 0)
+	{
+		digits[i++] = num % 10;
+		num /= 10;
+	}
+
+	while (i > 0)
+	{
+		count += _putchar('0' + digits[--i]);
+	}
 
 	return (count);
 }
@@ -52,7 +65,6 @@ int print_decimal(va_list args)
  * Description: This function is a wrapper around print_decimal
  * because the 'i' specifier behaves the same as the 'd' specifier.
  */
-
 int print_int(va_list args)
 {
 	return (print_decimal(args));

@@ -8,8 +8,9 @@
  */
 int print_char(va_list args)
 {
-    char c = va_arg(args, int);
-    return (_putchar(c));
+	char c = va_arg(args, int);
+
+	return (_putchar(c));
 }
 
 #include "main.h"
@@ -20,18 +21,20 @@ int print_char(va_list args)
  *
  * Return: The number of characters printed
  */
-int print_string(va_list args);
+int print_string(va_list args)
 {
-    char *str = va_arg(args, char *)
-    int count = 0;
+	char *str = va_arg(args, char *);
+	int count = 0;
 
-    if (str == NULL)
-    {
-        str = "(null)";
-    }
-    for (; *str != '\0'; str++)
-    {
-        count += _putchar(*str);
-    }
-    return (count);
+	if (str == NULL)
+	{
+		str = "(null)";
+	}
+
+	for (; *str != '\0'; str++)
+	{
+		count += _putchar(*str);
+	}
+
+	return (count);
 }
