@@ -48,24 +48,24 @@ The
 function also supports common escape sequences, such as:
 
 .TP
-.B \n
+.B \\\\n
 Prints a newline.
 
 .TP
-.B \t
+.B \\\\t
 Prints a horizontal tab.
 
 .TP
-.B \\\\
-Prints a single backslash ('\\').
+.B \\\\\\\\
+Prints a single backslash ( \\ ).
 
 .TP
-.B \'
-Prints a single quote.
+.B \\\\\\(aq
+Prints a single quote ( \' ).
 
 .TP
-.B \"
-Prints a double quote.
+.B \\\\\\(dq
+Prints a double quote ( " ).
 
 .SH RETURN VALUE
 The
