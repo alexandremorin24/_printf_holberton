@@ -9,7 +9,7 @@
 
 int _printf(const char * const format, ...)
 {
-	int count = 0, result;
+	int count = 0;
 	unsigned int i;
 
 	va_list args;
@@ -27,14 +27,6 @@ int _printf(const char * const format, ...)
 		if (!format[i])
 		return (-1);
 		count += handle_specifier(format, &i, args);
-	}
-
-	else if (format[i] == '\\')
-	{
-		result = handle_escape(format, &i);
-		if (result == -1)
-		return (-1);
-		count += result;
 	}
 	else
 	{

@@ -7,7 +7,6 @@ _printf is a custom implementation of the C standard library function printf. Th
 ## 🛠️ Features
 
 - Support for format specifiers: %c, %s, %d, %i, %%.
-- Escape sequences such as \n, \t, and \\.
 - Modular, clean, and maintainable implementation.
 - Returns the number of characters printed (excluding the null byte).
 
@@ -49,15 +48,6 @@ _printf("Percent sign: %%\n");
 // Output: Percent sign: %
 ```
 
-### Escape Sequences
-
-```c
-_printf("Newline:\nTab:\tEnd\n");
-`// Output:`
-// Newline:
-// Tab:    End
-```
-
 ## 🔧 Supported Specifiers
 
 | Specifier | Description                                   | Example                 |
@@ -74,10 +64,9 @@ _printf("Newline:\nTab:\tEnd\n");
 |:-------------------------|:-----------------------------------------------------------------|
 | main.h                   | Header file containing function prototypes and type definitions. |
 | _printf.c                | Main function implementing the _printf logic.                    |
-| handle_escape_sequence.c | Handles special escape sequences in the format string.           |
 | print_numbers.c	         | Functions to handle numeric specifiers (%d, %i, %%).             |
 | print_letter.c           | Functions to handle character and string specifiers (%c, %s).    |
-| utils.c                  | Helper functions (_putchar, _strlen).                            |
+| utils.c                  | Helper functions (_putchar).                            |
 
 ## 📊 Logic Implementation
 

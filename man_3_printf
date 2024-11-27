@@ -42,31 +42,6 @@ Prints a signed decimal integer.
 .B %%
 Prints a literal '%' character.
 
-.SH ESCAPE SEQUENCES
-The
-.B _printf
-function also supports common escape sequences, such as:
-
-.TP
-.B \\\\n
-Prints a newline.
-
-.TP
-.B \\\\t
-Prints a horizontal tab.
-
-.TP
-.B \\\\\\\\
-Prints a single backslash ( \\ ).
-
-.TP
-.B \\\\\\(aq
-Prints a single quote ( \' ).
-
-.TP
-.B \\\\\\(dq
-Prints a double quote ( " ).
-
 .SH RETURN VALUE
 The
 .B _printf
@@ -118,8 +93,11 @@ This implementation does not handle:
 .SH AUTHORS
 This project was created as part of the Holberton School curriculum.
 
-.B Your Name
-GitHub: https://github.com/yourusername
+.B Alexandre MORIN 
+GitHub: https://github.com/alexandremorin24
+
+.B Haggui RAZAFIMAITSO
+GitHub:https://github.com/hagguishel
 
 .SH SEE ALSO
 .B printf(3)
