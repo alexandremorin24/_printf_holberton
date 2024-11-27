@@ -11,15 +11,6 @@ int _printf(const char * const format, ...)
 {
 	int count = 0, result;
 	unsigned int i;
-	format_specifier_t specifiers[] =
-	{
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'d', print_decimal},
-		{'i', print_int},
-		{'\0', NULL}
-	};
 
 	va_list args;
 
@@ -30,22 +21,22 @@ int _printf(const char * const format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%') /* Gestion des spécificateurs */
+		if (format[i] == '%')
 	{
 		i++;
 		if (!format[i])
 		return (-1);
-		count += handle_specifier(format, &i, args, specifiers);
+		count += handle_specifier(format, &i, args);
 	}
 
-	else if (format[i] == '\\') /* Gestion des séquences d'échappement */
+	else if (format[i] == '\\')
 	{
 		result = handle_escape(format, &i);
 		if (result == -1)
 		return (-1);
 		count += result;
 	}
-	else /* Impression de texte brut */
+	else
 	{
 		count += _putchar(format[i]);
 	}
