@@ -1,0 +1,125 @@
+.TH _PRINTF 3 "November 2024" "Holberton School" "_PRINTF MANUAL"
+.SH NAME
+_printf \- custom implementation of the printf function
+
+.SH SYNOPSIS
+.nf
+.B #include "main.h"
+.BI "int _printf(const char *format, ...);"
+.fi
+
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a specified
+.I format
+string and additional arguments. It mimics the behavior of the standard library's
+.B printf
+function but with a limited set of specifiers and functionalities.
+
+The
+.I format
+string can contain plain text and format specifiers. Text is printed as-is, while format specifiers are replaced with the values of the provided arguments.
+
+Format specifiers begin with a '%' character and are followed by a specifier character.
+
+.SH SUPPORTED SPECIFIERS
+The following specifiers are supported:
+
+.TP
+.B %c
+Prints a single character.
+
+.TP
+.B %s
+Prints a null-terminated string.
+
+.TP
+.B %d, %i
+Prints a signed decimal integer.
+
+.TP
+.B %%
+Prints a literal '%' character.
+
+.SH ESCAPE SEQUENCES
+The
+.B _printf
+function also supports common escape sequences, such as:
+
+.TP
+.B \n
+Prints a newline.
+
+.TP
+.B \t
+Prints a horizontal tab.
+
+.TP
+.B \\\\
+Prints a single backslash ('\\').
+
+.TP
+.B \'
+Prints a single quote.
+
+.TP
+.B \"
+Prints a double quote.
+
+.SH RETURN VALUE
+The
+.B _printf
+function returns the total number of characters printed, excluding the null byte. If an error occurs, it returns -1.
+
+.SH USAGE EXAMPLES
+Here are some examples of using
+.B _printf
+:
+
+.TP
+Print a string:
+.nf
+_printf("Hello, %s\\n", "World");
+// Output: Hello, World
+.fi
+
+.TP
+Print an integer:
+.nf
+_printf("Value: %d\\n", 42);
+// Output: Value: 42
+.fi
+
+.TP
+Print special characters:
+.nf
+_printf("Percent: %%\\nTab:\\tEnd\\n");
+// Output:
+// Percent: %
+// Tab:    End
+.fi
+
+.SH COMPILATION
+To compile a program using
+.B _printf
+, include the necessary source files and compile with:
+.nf
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o program_name
+.fi
+
+.SH LIMITATIONS
+This implementation does not handle:
+
+- Flags such as '+', '-', or '0'.
+- Field width or precision.
+- Length modifiers (e.g., 'l', 'h').
+
+.SH AUTHORS
+This project was created as part of the Holberton School curriculum.
+
+.B Your Name
+GitHub: https://github.com/yourusername
+
+.SH SEE ALSO
+.B printf(3)

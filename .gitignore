@@ -6,6 +6,7 @@
 !*.h
 !README.md
 !.gitignore
+!man_3_printf
 !diagram.png
 
 # Ignore compiled or executable files
