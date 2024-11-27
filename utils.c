@@ -1,11 +1,15 @@
 #include "main.h"
+
 /**
- * _strlen - Renvoie la longueur d'une chaîne de caractè
- * @s: Pointeur vers la chaîne à mesur
- * Cette fonction parcourt la chaîne jusqu'à atteindre le caractère nu
- * pour compter le nombre de caractères
- * Return: La longueur de la chaîn
+ * _strlen - Returns the length of a string
+ * @s: Pointer to the string to measure
+ *
+ * Description: This function traverses the string until it reaches
+ * the null character to count the number of characters.
+ *
+ * Return: The length of the string
  */
+
 int _strlen(char *s)
 {
 int count = 0;
