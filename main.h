@@ -27,8 +27,6 @@ int print_percent(va_list args);
 int print_decimal(va_list args);
 int print_int(va_list args);
 int _putchar(char c);
-int _strlen(char *s);
-int handle_escape_sequence(char c);
 int handle_specifier(const char *format, unsigned int *i, va_list args);
 int handle_escape(const char *format, unsigned int *i);
 
