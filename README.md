@@ -79,6 +79,12 @@ _printf("Newline:\nTab:\tEnd\n");
 | print_letter.c           | Functions to handle character and string specifiers (%c, %s).    |
 | utils.c                  | Helper functions (_putchar, _strlen).                            |
 
+## 📊 Logic Implementation
+
+The following flowchart illustrates the internal logic of the `_printf` function:
+
+![Flowchart of _printf](./diagram.png)
+
 ## 📦 Compilation
 
 To compile the project, use the following command:

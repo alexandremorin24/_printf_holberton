@@ -6,6 +6,7 @@
 !*.h
 !README.md
 !.gitignore
+!diagram.png
 
 # Ignore compiled or executable files
 a.out
