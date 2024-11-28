@@ -1,26 +1,31 @@
-# _printf - *Custom Implementation of the printf Function*
+# _printf
 
 ## 🚀 Description
 
-_printf is a custom implementation of the C standard library function printf. This project was built as part of an educational exercise to understand variadic functions, format specifiers, and output handling in C.
+`_printf` is a custom implementation of the C standard library function `printf`.  
+This project is part of the Holberton School curriculum and focuses on key C programming concepts such as:
 
-## 🛠️ Features
+- Variadic functions
+- Format specifiers
+- Handling output to the standard output (`stdout`)
 
-- Support for format specifiers: %c, %s, %d, %i, %%.
-- Modular, clean, and maintainable implementation.
-- Returns the number of characters printed (excluding the null byte).
+The `_printf` function is designed to run in a **Linux environment** with **GCC** on **Ubuntu 20.04**.
 
-## 📚 Usage
+## 🛠️ Requirements
 
-To use _printf in your C project:
+- Ubuntu 20.04 LTS
+- GCC compiler with the following flags:
+  - `-Wall -Werror -Wextra -pedantic -std=gnu89`
+- Git for version control
+- Familiarity with C programming, variadic functions, and file handling.
 
-1. Include the main.h header file.
-2. Compile the code using GCC (see 📦 Compilation).
+## 📦 Compilation
 
-Prototype:
+To compile the project, ensure you have all required `.c` files in the same directory.  
+Use the following command to generate the executable `_printf`:
 
-```c
-int _printf(const char *format, ...);
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o _printf
 ```
 
 ## ✅ Examples
@@ -68,19 +73,65 @@ _printf("Percent sign: %%\n");
 | print_letter.c           | Functions to handle character and string specifiers (%c, %s).    |
 | utils.c                  | Helper functions (_putchar).                            |
 
-## 📊 Logic Implementation
+## 📖 Man Page
 
-The following flowchart illustrates the internal logic of the `_printf` function:
+A man page is available for the `_printf` function. To view it, run:
+
+man ./man_3_printf
+
+
+The man page includes:
+- NAME
+- SYNOPSIS
+- DESCRIPTION
+- USAGE EXAMPLES
+- LIMITATIONS
+
+## ✅ Testing
+
+### Example Tests
+
+Create a test file `main.c` to test the `_printf` function. Example:
+
+```c
+#include "main.h"
+
+int main(void)
+{
+    _printf("Hello, World!\n");
+    _printf("Number: %d\n", 42);
+    return (0);
+}
+```
+
+Compile and run the program:
+
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test ./test
+```
+
+### Memory Leak Checks with Valgrind
+
+Use Valgrind to ensure there are no memory leaks:
+
+```bash
+valgrind --leak-check=full --track-origins=yes ./_printf
+```
+
+Example Output:
+
+```bash
+==12345== HEAP SUMMARY: in use at exit: 0 bytes in 0 blocks total heap usage: 10 allocs, 10 frees ==12345== All heap blocks were freed -- no leaks are possible
+```
+
+## 🧩 Logic Implementation
+
+The following flowchart illustrates the step-by-step logic of the `_printf` function.  
+It shows how the function processes the format string, identifies specifiers, and handles the output.
+
 
 ![Flowchart of _printf](./diagram.png)
 
-## 📦 Compilation
-
-To compile the project, use the following command:
-
-```c
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o _printf
-```
 
 ## ⚠️ Limitations
 
