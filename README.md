@@ -28,6 +28,16 @@ Use the following command to generate the executable `_printf`:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o _printf
 ```
 
+## 🔧 Supported Specifiers
+
+| Specifier | Description                                   | Example                 |
+|:----------|:----------------------------------------------|:------------------------|
+| %c        | Prints a single character                     | _printf("%c", 'A');     |
+| %s        | Prints a string of characters                 | _printf("%s", "Hello"); |
+| %d        | Prints a signed decimal integer               | _printf("%d", -123);    |
+| %i        | Prints a signed decimal integer (same as %d)  | _printf("%i", 456);     |
+| %%        | Prints a literal % character                  | _printf("%%");          |
+
 ## ✅ Examples
 
 ### Basic Usage
@@ -53,16 +63,6 @@ _printf("Percent sign: %%\n");
 // Output: Percent sign: %
 ```
 
-## 🔧 Supported Specifiers
-
-| Specifier | Description                                   | Example                 |
-|:----------|:----------------------------------------------|:------------------------|
-| %c        | Prints a single character                     | _printf("%c", 'A');     |
-| %s        | Prints a string of characters                 | _printf("%s", "Hello"); |
-| %d        | Prints a signed decimal integer               | _printf("%d", -123);    |
-| %i        | Prints a signed decimal integer (same as %d)  | _printf("%i", 456);     |
-| %%        | Prints a literal % character                  | _printf("%%");          |
-
 ## 📂 Files
 
 |  File                    |  Description                                                     |
@@ -71,14 +71,16 @@ _printf("Percent sign: %%\n");
 | _printf.c                | Main function implementing the _printf logic.                    |
 | print_numbers.c	         | Functions to handle numeric specifiers (%d, %i, %%).             |
 | print_letter.c           | Functions to handle character and string specifiers (%c, %s).    |
-| utils.c                  | Helper functions (_putchar).                            |
+| utils.c                  | Helper functions (_putchar).                                     |
+| man_3_printf             | Manual page describing the function and its usage.               |
 
 ## 📖 Man Page
 
 A man page is available for the `_printf` function. To view it, run:
 
+```bash
 man ./man_3_printf
-
+```
 
 The man page includes:
 - NAME
@@ -106,7 +108,7 @@ int main(void)
 
 Compile and run the program:
 
-```bash
+```
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test ./test
 ```
 
@@ -114,21 +116,20 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test ./test
 
 Use Valgrind to ensure there are no memory leaks:
 
-```bash
+```
 valgrind --leak-check=full --track-origins=yes ./_printf
 ```
 
 Example Output:
 
-```bash
+```
 ==12345== HEAP SUMMARY: in use at exit: 0 bytes in 0 blocks total heap usage: 10 allocs, 10 frees ==12345== All heap blocks were freed -- no leaks are possible
 ```
 
 ## 🧩 Logic Implementation
 
 The following flowchart illustrates the step-by-step logic of the `_printf` function.  
-It shows how the function processes the format string, identifies specifiers, and handles the output.
-
+It shows how the function processes the input string, handles format specifiers, and prints the resulting output. It demonstrates the modular design of the function.
 
 ![Flowchart of _printf](./diagram.png)
 
