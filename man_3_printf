@@ -23,7 +23,7 @@ string can contain plain text and format specifiers. Text is printed as-is, whil
 
 Format specifiers begin with a '%' character and are followed by a specifier character.
 
-.SH SUPPORTED SPECIFIERS
+.SS Supported Specifiers
 The following specifiers are supported:
 
 .TP
@@ -42,38 +42,12 @@ Prints a signed decimal integer.
 .B %%
 Prints a literal '%' character.
 
-.SH RETURN VALUE
-The
-.B _printf
-function returns the total number of characters printed, excluding the null byte. If an error occurs, it returns -1.
-
-.SH USAGE EXAMPLES
-Here are some examples of using
-.B _printf
-:
-
-.TP
-Print a string:
-.nf
-_printf("Hello, %s\\n", "World");
-// Output: Hello, World
-.fi
-
-.TP
-Print an integer:
-.nf
-_printf("Value: %d\\n", 42);
-// Output: Value: 42
-.fi
-
-.TP
-Print special characters:
-.nf
-_printf("Percent: %%\\nTab:\\tEnd\\n");
-// Output:
-// Percent: %
-// Tab:    End
-.fi
+.SS Limitations
+This implementation does not support:
+- Flags such as '+', '-', or '0'.
+- Field width specifications (e.g., `%5d`).
+- Precision control (e.g., `%.2f` or `%.3s`).
+- Length modifiers such as 'l', 'h', or 'll'.
 
 .SH COMPILATION
 To compile a program using
@@ -83,21 +57,16 @@ To compile a program using
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o program_name
 .fi
 
-.SH LIMITATIONS
-This implementation does not handle:
-
-- Flags such as '+', '-', or '0'.
-- Field width or precision.
-- Length modifiers (e.g., 'l', 'h').
-
 .SH AUTHORS
 This project was created as part of the Holberton School curriculum.
 
 .B Alexandre MORIN 
 GitHub: https://github.com/alexandremorin24
+Email: alexandre.morin24@gmail.com
 
 .B Haggui RAZAFIMAITSO
 GitHub:https://github.com/hagguishel
+Email: hagguirzt@gmail.com
 
 .SH SEE ALSO
 .B printf(3)
